@@ -9,20 +9,21 @@ namespace TryingShit
         {
             AVLTree avlTree = new AVLTree();
             avlTree.add(25);
-            avlTree.add(70);
-            avlTree.add(20);
-            avlTree.add(10);
-            avlTree.add(15);
+            avlTree.add(30);
+            avlTree.add(8);
+            avlTree.add(5);
+            avlTree.add(2);
+            avlTree.Find(8);
             avlTree.display();
         }
     }
 
-
-    /// <summary>
-    /// KYSNEM SA FR
-    /// </summary>
+    
     class AVLTree
     {
+
+        public const int NUMBER = 0;
+        Node parent;
 
         internal class Node
         {
@@ -31,69 +32,58 @@ namespace TryingShit
             public Node left;
             public Node right;
 
-            public Node(int data)
-            {
-                this.data = data;
-                
-            }
+            
             public Node()
             {
             }
+            public Node(int data)
+            {
+                this.data = data;
+                height = 0;
+            }
         }
-        Node parent;
-        
+
         public void add(int data)
         {
-            
-            if (parent == null)
+            Node newNode = new Node(data);
+            if (parent != null)
             {
-                parent = new Node(data);
+                parent = insert(parent, newNode, data);
             }
             else
             {
-                insert(parent,data);
+                parent = newNode;
             }
         }
         
         
-        public void insert(Node currentNode, int data)
+        public Node insert(Node currentNode, Node newNode, int data)
         {
-            if (data < currentNode.data)
+            if (currentNode == null)
             {
-                if (currentNode.left == null)
-                {
-                    currentNode.left = new Node(data);   
-                }
-                else
-                {
-                    insert(currentNode.left, data);
-                    currentNode = balance(currentNode);
-                }
+                currentNode = newNode;
+                return currentNode;
             }
-            
+            else if (data < currentNode.data)
+            {
+                currentNode.left = insert(currentNode.left, newNode, data);
+                currentNode = balance(currentNode);
+            }
             else if (data > currentNode.data)
             {
-                if (currentNode.right == null)
-                {
-                    currentNode.right = new Node(data);
-                }
-                else
-                {
-                    insert(currentNode.right, data);
-                    currentNode = balance(currentNode);
-                }
+                currentNode.right = insert(currentNode.right, newNode, data);
+                currentNode = balance(currentNode);
             }
             
+            return currentNode;
         }
-        
         
         public Node balance(Node node)
         {
-            int HeightDiff = heightDifference(node);
-            
-            if (HeightDiff > 1)
+            int difference = HeightFromLeft(node) - HeigtFromRight(node);
+            if (difference > 1)
             {
-                if (heightDifference(node.left) > 0)
+                if (HeightFromLeft(node.left) - HeigtFromRight(node.left) > 0)
                 {
                     node = rotationLeftLeft(node);
                 }
@@ -103,9 +93,9 @@ namespace TryingShit
                 }
             }
             
-            else if (HeightDiff < -1)
+            else if (difference < -1)
             {
-                if (heightDifference(node.right) > 0)
+                if (HeightFromLeft(node.right) - HeigtFromRight(node.right) > 0)
                 {
                     node = rotationRightLeft(node);
                 }
@@ -117,47 +107,70 @@ namespace TryingShit
 
             return node;
         }
-        
 
-        public int Height()
+        public void Find(int data)
         {
-            return HeightHelper(parent);
+            FindFromTree(parent,data);
         }
+        public void FindFromTree(Node node, int data)
+        {
+            if (node.data == data)
+            {
+                Console.WriteLine("Node was found" + node.data);
+            }
+            else
+            {
+                if (data > node.data)
+                {
+                    FindFromTree(node.right, data);
+                }
+                else if (data < parent.data)
+                {
+                    FindFromTree(node.left, data);
+                }
+            }
+        }
+        
+        
+        public int HeightFromLeft(Node node)
+        {
+            int vyska = 0;
+            if (node!= null)
+            {
+                vyska = HeightFromLeft(node.left) + 1;
+            }
+
+            return vyska;
+        }
+        
+        public int HeigtFromRight(Node node)
+        {
+            int vyska = 0;
+            if (node!= null)
+            {
+                vyska = HeigtFromRight(node.right) + 1;
+            }
+
+            return vyska;
+        }
+        
 
 
         public int HeightHelper(Node node)
         {
-            int height = 0;
             if (node != null)
             {
-                int left = HeightHelper(node.left);
-                int right = HeightHelper(node.right);
-                height = Math.Max(left, right) + 1;
+                return node.height;
             }
-            return height;
+            return 0;
         }
 
         
         /// 
         /// Mozno bude lepsie storovat height v kazdom note. tato rekurzia moze trvat dlho
-        /// 
-        public int heightDifference(Node node)
-        {
-            int left = HeightHelper(node.left);
-            int right = HeightHelper(node.right);
-            int heightDiff = left - right;
-            return heightDiff;
-        }
+        ///
         
-        
-        
-        public void displayHeight()
-        {
-            Console.WriteLine(Height());
-        }
-        
-        
-        
+
         public void display()
         {
             if (parent == null)
@@ -172,23 +185,23 @@ namespace TryingShit
 
         public void displayFromLevels(Node node)
         {
-            
-            Console.Write(node.data + " ");
-            Console.Write(Height()+ "HEIGHT ");
+            if (node != null)
+            {
+                Console.Write(node.data + " HEIGHT>"+ node.height);
 
-            if (node.left != null)
-            {
-                Console.Write(node.left.data + "L");
-                displayFromLevels(node.left);
-            }
-            if (node.right != null)
-            {
-                Console.Write(node.right.data + "R");
-                displayFromLevels(node.right);
+                if (node.left != null)
+                {
+                    Console.Write("L:");
+                    displayFromLevels(node.left);
+                }
+
+                if (node.right != null)
+                {
+                    Console.Write("R:");
+                    displayFromLevels(node.right);
+                }
             }
         }
-
-
 
         public Node rotationRightRight(Node parentOfTriangle)
         {
