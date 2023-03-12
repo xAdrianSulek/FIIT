@@ -8,12 +8,20 @@ namespace TryingShit
         public static void Main(string[] args)
         {
             AVLTree avlTree = new AVLTree();
+            Random random = new Random();
+            
+            /*
+            avlTree.add(10);
+            avlTree.add(15);
+            avlTree.add(20);
             avlTree.add(25);
-            avlTree.add(30);
-            avlTree.add(8);
-            avlTree.add(5);
-            avlTree.add(2);
-            avlTree.Find(8);
+            avlTree.delete(20);
+            avlTree.display();
+            */
+            for (int i = 0; i < 10; i++)
+            {
+                avlTree.add(random.Next());
+            }
             avlTree.display();
         }
     }
@@ -24,6 +32,7 @@ namespace TryingShit
 
         public const int NUMBER = 0;
         Node parent;
+        Node randomNode;
 
         internal class Node
         {
@@ -110,25 +119,110 @@ namespace TryingShit
 
         public void Find(int data)
         {
-            FindFromTree(parent,data);
-        }
-        public void FindFromTree(Node node, int data)
-        {
-            if (node.data == data)
+            if (FindFromTree(parent, data) == data)
             {
-                Console.WriteLine("Node was found" + node.data);
+                Console.WriteLine("Node was found: " + data);
             }
             else
             {
-                if (data > node.data)
+                Console.WriteLine("Node was not found");
+            }
+        }
+        public int FindFromTree(Node node, int data)
+        {
+            if (data == node.data)
+            {
+                return data;
+            }
+            else
+            {
+                if (data < node.data)
                 {
-                    FindFromTree(node.right, data);
+                    return FindFromTree(node.left, data);
                 }
-                else if (data < parent.data)
+                else
                 {
-                    FindFromTree(node.left, data);
+                    return FindFromTree(node.right, data);
                 }
             }
+        }
+
+        public void delete(int data)
+        {
+            parent = deleteFromTree(parent, data);
+        }
+
+        public Node deleteFromTree(Node node, int data)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (data < node.data)
+                {
+                    node.left = deleteFromTree(node.left, data);
+                    if (HeightFromLeft(node) - HeigtFromRight(node) == -2)
+                    {
+                        if (HeightFromLeft(node.right) - HeigtFromRight(node.right) <= 0)
+                        {
+                            node = rotationRightRight(node);
+                        }
+                        else
+                        {
+                            node = rotationRightLeft(node);
+                        }
+                    }
+                }
+                else if (data > node.data)
+                {
+                    node.right = deleteFromTree(node.right, data);
+                    if (HeightFromLeft(node) - HeightFromLeft(node) == 2)
+                    {
+                        if (HeightFromLeft(node.left) - HeigtFromRight(node.right) >= 0)
+                        {
+                            node = rotationLeftLeft(node);
+                        }
+                        else
+                        {
+                            node = rotationLeftRight(node);
+                        }
+                    }
+                }
+                else
+                {
+                    if (node.right != null)
+                    {
+                        randomNode = node.right;
+                        while (randomNode.left != null)
+                        {
+                            randomNode = randomNode.left;
+                        }
+
+                        node.data = randomNode.data;
+                        node.right = deleteFromTree(node.right, randomNode.data);
+                        if (HeightFromLeft(node) - HeigtFromRight(node) == 2)
+                        {
+                            if (HeightFromLeft(node.left) - HeigtFromRight(node.left) >= 0)
+                            {
+                                node = rotationLeftRight(node);
+                            }
+                            else
+                            {
+                                node = rotationLeftRight(node);
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        return node.left;
+                    }
+                }
+            }
+
+            return node;
         }
         
         
@@ -187,7 +281,7 @@ namespace TryingShit
         {
             if (node != null)
             {
-                Console.Write(node.data + " HEIGHT>"+ node.height);
+                Console.Write(node.data + " ");
 
                 if (node.left != null)
                 {
