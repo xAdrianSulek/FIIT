@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Diagnostics;
+using  System.Threading;
 
 namespace TryingShit
 {
@@ -9,7 +10,9 @@ namespace TryingShit
         {
             AVLTree avlTree = new AVLTree();
             Random random = new Random();
+            Stopwatch stopwatch = new Stopwatch();
             
+            stopwatch.Start();
             /*
             avlTree.add(10);
             avlTree.add(15);
@@ -18,11 +21,23 @@ namespace TryingShit
             avlTree.delete(20);
             avlTree.display();
             */
-            for (int i = 0; i < 10; i++)
+            
+            /*
+            for (int i = 1; i < 10000; i++)
+            {
+                avlTree.add(i);
+            }
+            */
+            
+            for (int i = 0; i < 1000000; i++)
             {
                 avlTree.add(random.Next());
             }
+            /*
             avlTree.display();
+            */
+            stopwatch.Stop();
+            Console.WriteLine("\n Elapsed time is {0} ms", stopwatch.ElapsedMilliseconds);
         }
     }
 
@@ -152,6 +167,11 @@ namespace TryingShit
             parent = deleteFromTree(parent, data);
         }
 
+        
+        
+        /// Deletion
+        /// 
+
         public Node deleteFromTree(Node node, int data)
         {
             if (node == null)
@@ -226,6 +246,14 @@ namespace TryingShit
         }
         
         
+        /// 
+        /// Mozno bude lepsie storovat height v kazdom note. tato rekurzia moze trvat dlho
+        ///
+        
+        
+        ///Finding height of a tree from current node down the path
+        ///
+        ///From Left
         public int HeightFromLeft(Node node)
         {
             int vyska = 0;
@@ -236,7 +264,8 @@ namespace TryingShit
 
             return vyska;
         }
-        
+
+        /// From Right
         public int HeigtFromRight(Node node)
         {
             int vyska = 0;
@@ -258,13 +287,10 @@ namespace TryingShit
             }
             return 0;
         }
-
         
-        /// 
-        /// Mozno bude lepsie storovat height v kazdom note. tato rekurzia moze trvat dlho
+        
+
         ///
-        
-
         public void display()
         {
             if (parent == null)
@@ -277,6 +303,9 @@ namespace TryingShit
             }
         }
 
+        /// Displaying node from root --> left left left etc.
+        /// 
+        /// TODO: add displaying from lowest to highest
         public void displayFromLevels(Node node)
         {
             if (node != null)
@@ -296,6 +325,11 @@ namespace TryingShit
                 }
             }
         }
+        
+        
+        /// Rotation of nodes.
+        /// 
+
 
         public Node rotationRightRight(Node parentOfTriangle)
         {
