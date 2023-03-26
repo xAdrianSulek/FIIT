@@ -6,4 +6,23 @@
         {
         }
     }
+
+    class BlackAndRed
+    {
+
+
+        internal class Node
+        {
+            private bool black;
+            private bool red;
+            private int data;
+            
+            public Node()
+
+        }
+        
+        
+    }
+
+
 }

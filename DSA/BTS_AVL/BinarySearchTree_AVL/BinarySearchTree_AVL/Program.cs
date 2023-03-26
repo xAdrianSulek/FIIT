@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Security.Cryptography;
 using  System.Threading;
 
 namespace TryingShit
@@ -22,25 +23,32 @@ namespace TryingShit
             avlTree.display();
             */
             
-            /*
-            for (int i = 1; i < 10000; i++)
+            
+            for (int i = 1; i < 1000000; i++)
             {
                 avlTree.add(i);
             }
-            */
             
+            /*
             for (int i = 0; i < 1000000; i++)
             {
-                avlTree.add(random.Next());
+                avlTree.add(WHATTT());
             }
+            */
+            
             /*
             avlTree.display();
             */
+            avlTree.Find(581);
             stopwatch.Stop();
             Console.WriteLine("\n Elapsed time is {0} ms", stopwatch.ElapsedMilliseconds);
+            int WHATTT()
+            {
+                return random.Next() * 100;
+            }   
         }
     }
-
+    
     
     class AVLTree
     {
