@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace BST_SplayTree
 {
@@ -7,7 +8,12 @@ namespace BST_SplayTree
         public static void Main(string[] args)
         {
             SplayTree splayTree = new SplayTree();
+            Stopwatch stopwatch = new Stopwatch();
+            Random random = new Random();
             
+            
+            
+            /*
             splayTree.Insert(10);
             splayTree.Insert(5);
             splayTree.Insert(8);
@@ -15,7 +21,25 @@ namespace BST_SplayTree
             splayTree.Insert(20);
             splayTree.Find(20,splayTree.root);
             splayTree.Display(splayTree.root);
+            Console.WriteLine(splayTree.root.Key); //<--- Vidime ze root sa zmeni na 20 po vyhladani daneho Nodu
+            */
+            
 
+            
+            for (int i = 1; i < 1000000; i++)
+            {
+                splayTree.Insert(i);
+            }
+            
+            for (int i = 1; i < 1000; i++)
+            {
+                int rnd = random.Next();
+                stopwatch.Start();
+                splayTree.Find(rnd/2,splayTree.root);
+                stopwatch.Stop();
+            }
+
+            Console.WriteLine("Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
         }
     }
 
@@ -89,10 +113,22 @@ namespace BST_SplayTree
 
         }
 
-        public void Find(int key, Node node)
+        public Node Find(int key, Node node)
         {
+            node = Splay(key, node);
 
-            if (root.Key == key)
+            if (node.Key == key)
+            {
+                return node;
+            }
+            else
+            {
+                Console.WriteLine("Nenasiel sa prvok");
+                return null;
+            }
+
+            //Na checkovanie Funkcnosti
+            /*if (root.Key == key)
             {
                 Console.WriteLine("Najdeny prvok");
             }
@@ -100,7 +136,7 @@ namespace BST_SplayTree
             {
                 Find(key, root.Left);
                 Find(key, root.Right);
-            }
+            }*/
         }
 
         public void Delete(int key)

@@ -13,7 +13,6 @@ namespace TryingShit
             Random random = new Random();
             Stopwatch stopwatch = new Stopwatch();
             
-            stopwatch.Start();
             /*
             avlTree.add(10);
             avlTree.add(15);
@@ -26,7 +25,9 @@ namespace TryingShit
             
             for (int i = 1; i < 1000000; i++)
             {
+                stopwatch.Start();
                 avlTree.add(i);
+                stopwatch.Stop();
             }
             
             /*
@@ -39,13 +40,7 @@ namespace TryingShit
             /*
             avlTree.display();
             */
-            avlTree.Find(581);
-            stopwatch.Stop();
             Console.WriteLine("\n Elapsed time is {0} ms", stopwatch.ElapsedMilliseconds);
-            int WHATTT()
-            {
-                return random.Next() * 100;
-            }   
         }
     }
     
