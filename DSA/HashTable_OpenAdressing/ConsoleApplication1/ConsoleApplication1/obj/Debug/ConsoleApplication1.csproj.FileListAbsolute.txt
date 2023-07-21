@@ -1,0 +1,7 @@
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.AssemblyReference.cache
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Adria\OneDrive\Desktop\idk\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
