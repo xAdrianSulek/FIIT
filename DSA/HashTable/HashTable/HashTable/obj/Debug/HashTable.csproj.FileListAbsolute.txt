@@ -1,7 +1,0 @@
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\bin\Debug\HashTable.exe
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\bin\Debug\HashTable.pdb
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\obj\Debug\HashTable.csproj.AssemblyReference.cache
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\obj\Debug\HashTable.csproj.SuggestedBindingRedirects.cache
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\obj\Debug\HashTable.csproj.CoreCompileInputs.cache
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\obj\Debug\HashTable.exe
-C:\repo\FIIT\DSA\HashTable\HashTable\HashTable\obj\Debug\HashTable.pdb

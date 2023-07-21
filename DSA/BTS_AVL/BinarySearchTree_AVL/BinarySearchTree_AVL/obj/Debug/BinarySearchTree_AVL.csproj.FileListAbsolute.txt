@@ -1,7 +1,0 @@
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\bin\Debug\BinarySearchTree_AVL.exe
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\bin\Debug\BinarySearchTree_AVL.pdb
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\obj\Debug\BinarySearchTree_AVL.csproj.AssemblyReference.cache
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\obj\Debug\BinarySearchTree_AVL.csproj.SuggestedBindingRedirects.cache
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\obj\Debug\BinarySearchTree_AVL.csproj.CoreCompileInputs.cache
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\obj\Debug\BinarySearchTree_AVL.exe
-C:\repo\FIIT\DSA\BTS_AVL\BinarySearchTree_AVL\BinarySearchTree_AVL\obj\Debug\BinarySearchTree_AVL.pdb
