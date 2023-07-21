@@ -1,0 +1,3 @@
+C:/Users/Adria/OneDrive/Desktop/DSA2 Clion/cmake-build-debug/CMakeFiles/DSA2_Clion.dir
+C:/Users/Adria/OneDrive/Desktop/DSA2 Clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Adria/OneDrive/Desktop/DSA2 Clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir

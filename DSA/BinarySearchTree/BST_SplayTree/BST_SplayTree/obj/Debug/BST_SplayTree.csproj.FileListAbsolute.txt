@@ -1,0 +1,7 @@
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\bin\Debug\BST_SplayTree.exe
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\bin\Debug\BST_SplayTree.pdb
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\obj\Debug\BST_SplayTree.csproj.AssemblyReference.cache
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\obj\Debug\BST_SplayTree.csproj.SuggestedBindingRedirects.cache
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\obj\Debug\BST_SplayTree.csproj.CoreCompileInputs.cache
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\obj\Debug\BST_SplayTree.exe
+C:\repo\FIIT\DSA\BST_SplayTree\BST_SplayTree\BST_SplayTree\obj\Debug\BST_SplayTree.pdb
